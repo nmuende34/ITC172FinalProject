@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfArtist">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Artist" nillable="true" type="tns:Artist" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArtist" nillable="true" type="tns:ArrayOfArtist" />
+  <xs:complexType name="Artist">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ArtistDateEntered" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ArtistEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArtistKey" type="xs:int" />
+      <xs:element minOccurs="0" name="ArtistName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ArtistWebPage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fans" nillable="true" type="tns:ArrayOfFan" />
+      <xs:element minOccurs="0" name="Genres" nillable="true" type="tns:ArrayOfGenre" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Artist" nillable="true" type="tns:Artist" />
+  <xs:complexType name="ArrayOfFan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Fan" nillable="true" type="tns:Fan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFan" nillable="true" type="tns:ArrayOfFan" />
+  <xs:complexType name="Fan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Artists" nillable="true" type="tns:ArrayOfArtist" />
+      <xs:element minOccurs="0" name="FanDateEntered" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FanEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FanKey" type="xs:int" />
+      <xs:element minOccurs="0" name="FanName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Genres" nillable="true" type="tns:ArrayOfGenre" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fan" nillable="true" type="tns:Fan" />
+  <xs:complexType name="ArrayOfGenre">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Genre" nillable="true" type="tns:Genre" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGenre" nillable="true" type="tns:ArrayOfGenre" />
+  <xs:complexType name="Genre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Artists" nillable="true" type="tns:ArrayOfArtist" />
+      <xs:element minOccurs="0" name="Fans" nillable="true" type="tns:ArrayOfFan" />
+      <xs:element minOccurs="0" name="GenreDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GenreKey" type="xs:int" />
+      <xs:element minOccurs="0" name="GenreName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Genre" nillable="true" type="tns:Genre" />
+</xs:schema>

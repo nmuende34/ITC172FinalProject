@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3c00b287-1088-4f0d-a3a1-9da773a4cb9e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:53853/ArtistTrackingService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ArtistTrackingService.xsd" MetadataType="Schema" ID="4e5b3fe1-4f8f-438f-8d1f-503af8e80222" SourceId="1" SourceUrl="http://localhost:53853/ArtistTrackingService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ArtistTrackingService.disco" MetadataType="Disco" ID="793fe928-1775-472e-afb0-88686cd691a3" SourceId="1" SourceUrl="http://localhost:53853/ArtistTrackingService.svc?disco" />
+    <MetadataFile FileName="ArtistTrackingService.wsdl" MetadataType="Wsdl" ID="00d1e0ad-0efc-4325-ae8c-fbc06328146d" SourceId="1" SourceUrl="http://localhost:53853/ArtistTrackingService.svc?wsdl" />
+    <MetadataFile FileName="ArtistTrackingService1.xsd" MetadataType="Schema" ID="c8743f28-8244-4094-80fd-363c60bc44ec" SourceId="1" SourceUrl="http://localhost:53853/ArtistTrackingService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ArtistTrackingService2.xsd" MetadataType="Schema" ID="592fb6de-c62a-4c35-9c8c-34ad0c596056" SourceId="1" SourceUrl="http://localhost:53853/ArtistTrackingService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

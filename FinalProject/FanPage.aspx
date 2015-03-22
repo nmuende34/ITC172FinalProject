@@ -10,13 +10,17 @@
     <form id="form1" runat="server">
     <div>
     <h1>Welcome Fan</h1>
+        <asp:DataList id="DataList1" runat="server">
+            <ItemTemplate>
                 <h2>
-                    <asp:Label ID="lblName" runat="server" Text='<%# Eval("ArtistNsme") %>'></asp:Label></h2>
+                    <asp:Label id="lblName" runat="server" Text='<%# Eval("ArtistName") %>'></asp:Label></h2>
                 <p>
-                    <strong>Email: <asp:Label ID="Label1" runat="server" Text='<%#Eval("ArtistEmail") %>'></asp:Label></strong> <br />
-                    Webpage: <asp:Label ID="Label2" runat="server" Text='<%#Eval("ArtistWebPage") %>'>'</asp:Label> <br />
+                    <strong>Email: <asp:Label id="Label1" runat="server" Text='<%#Eval("ArtistEmail") %>'></asp:Label></strong> <br />
+                    Webpage: <asp:Label id="Label2" runat="server" Text='<%#Eval("ArtistWebPage") %>'>'</asp:Label> <br />
                 </p>
-         <p><asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Logout</asp:LinkButton></p>
+            </ItemTemplate>
+        </asp:DataList>
+         <p><asp:LinkButton id="LinkButton1" runat="server" OnClick="LinkButton1_Click">Logout</asp:LinkButton></p>
     </div>
     </form>
 </body>

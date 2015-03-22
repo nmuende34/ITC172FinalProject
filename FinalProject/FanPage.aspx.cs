@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//using FanTrackingService;
+using ArtistTrackingService;
 
 public partial class FanPage : System.Web.UI.Page
 {
@@ -17,13 +17,15 @@ public partial class FanPage : System.Web.UI.Page
 
         FillArtists();
     }
+
     private void FillArtists()
     {
-       // FanTrackingServiceClient fsc = new FanTrackingShowServiceClient();
+        ArtistTrackingServiceClient atsc = new ArtistTrackingServiceClient();
         int key = (int)Session["FanKey"];
-       // List<Artist> artists = fsc.GetArtists(key).ToList();
-       // DataList1.DataSource = artists;
-       // DataList1.DataBind();
+        List<Artist> artists = atsc.GetArtists().ToList();
+        DataList1.DataSource = artists;
+        DataList1.DataBind();
+
     }
     protected void LinkButton1_Click(object sender, EventArgs e)
     {
