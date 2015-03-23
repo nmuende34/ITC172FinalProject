@@ -9,9 +9,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <h1 class="auto-style2">Welcome Fans</h1>
     <div>
-    <h1>Welcome Fans</h1>
-        <p>Please Login or Register to start following your favorite artists</p>
+        <p class="auto-style1">Please Login or Register to start following your favorite artists</p>
         <table class="login">
             <tr>
                 <td class="login">Fan User Name</td>
@@ -25,15 +25,21 @@
                 </tr>
             <tr>
                 <td class="login">
+                    &nbsp;</td>
+                <td>
                     <asp:Button id="btnLogin" runat="server" Text="Log in" OnClick="btnLogin_Click" />
                 </td>
+            </tr>
+            <tr>
+                <td class="login">
+                    &nbsp;</td>
                 <td>
                     <asp:Label id="lblError" runat="server" Text=""></asp:Label>
                 </td>
             </tr>
         </table>
-            <p>
-                <asp:LinkButton id="LinkButton1" runat="server" PostBackUrl="~/Register.aspx">Register</asp:LinkButton>
+            <p class="marg560">
+                <asp:LinkButton id="LinkButton1" runat="server" PostBackUrl="~/Register.aspx" class="error">Register</asp:LinkButton>
             </p>
     </div>
     </form>

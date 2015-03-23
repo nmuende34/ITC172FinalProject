@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FanTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ArtistKey" />
+          </Key>
+          <Property Name="ArtistKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArtistName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ArtistEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ArtistWebPage" Type="nvarchar" MaxLength="255" />
+          <Property Name="ArtistDateEntered" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ArtistGenre">
+          <Key>
+            <PropertyRef Name="ArtistKey" />
+            <PropertyRef Name="GenreKey" />
+          </Key>
+          <Property Name="ArtistKey" Type="int" Nullable="false" />
+          <Property Name="GenreKey" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fan">
+          <Key>
+            <PropertyRef Name="FanKey" />
+          </Key>
+          <Property Name="FanKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FanName" Type="nvarchar" MaxLength="255" />
+          <Property Name="FanEmail" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="FanDateEntered" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FanArtist">
+          <Key>
+            <PropertyRef Name="FanKey" />
+            <PropertyRef Name="ArtistKey" />
+          </Key>
+          <Property Name="FanKey" Type="int" Nullable="false" />
+          <Property Name="ArtistKey" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FanGenre">
+          <Key>
+            <PropertyRef Name="FanKey" />
+            <PropertyRef Name="GenreKey" />
+          </Key>
+          <Property Name="FanKey" Type="int" Nullable="false" />
+          <Property Name="GenreKey" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="GenreKey" />
+          </Key>
+          <Property Name="GenreKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenreName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="GenreDescription" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__ArtistGen__Artis__22AA2996">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="1" />
+          <End Role="ArtistGenre" Type="Self.ArtistGenre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ArtistKey" />
+            </Principal>
+            <Dependent Role="ArtistGenre">
+              <PropertyRef Name="ArtistKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ArtistGen__Genre__239E4DCF">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="ArtistGenre" Type="Self.ArtistGenre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="GenreKey" />
+            </Principal>
+            <Dependent Role="ArtistGenre">
+              <PropertyRef Name="GenreKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FanArtist__Artis__2B3F6F97">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="1" />
+          <End Role="FanArtist" Type="Self.FanArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ArtistKey" />
+            </Principal>
+            <Dependent Role="FanArtist">
+              <PropertyRef Name="ArtistKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FanArtist__FanKe__2A4B4B5E">
+          <End Role="Fan" Type="Self.Fan" Multiplicity="1" />
+          <End Role="FanArtist" Type="Self.FanArtist" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fan">
+              <PropertyRef Name="FanKey" />
+            </Principal>
+            <Dependent Role="FanArtist">
+              <PropertyRef Name="FanKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FanGenre__FanKey__267ABA7A">
+          <End Role="Fan" Type="Self.Fan" Multiplicity="1" />
+          <End Role="FanGenre" Type="Self.FanGenre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fan">
+              <PropertyRef Name="FanKey" />
+            </Principal>
+            <Dependent Role="FanGenre">
+              <PropertyRef Name="FanKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__FanGenre__GenreK__276EDEB3">
+          <End Role="Genre" Type="Self.Genre" Multiplicity="1" />
+          <End Role="FanGenre" Type="Self.FanGenre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="GenreKey" />
+            </Principal>
+            <Dependent Role="FanGenre">
+              <PropertyRef Name="GenreKey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FanTrackerModelStoreContainer">
+          <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArtistGenre" EntityType="Self.ArtistGenre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fan" EntityType="Self.Fan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FanArtist" EntityType="Self.FanArtist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FanGenre" EntityType="Self.FanGenre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ArtistGen__Artis__22AA2996" Association="Self.FK__ArtistGen__Artis__22AA2996">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="ArtistGenre" EntitySet="ArtistGenre" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ArtistGen__Genre__239E4DCF" Association="Self.FK__ArtistGen__Genre__239E4DCF">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="ArtistGenre" EntitySet="ArtistGenre" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FanArtist__Artis__2B3F6F97" Association="Self.FK__FanArtist__Artis__2B3F6F97">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="FanArtist" EntitySet="FanArtist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FanArtist__FanKe__2A4B4B5E" Association="Self.FK__FanArtist__FanKe__2A4B4B5E">
+            <End Role="Fan" EntitySet="Fan" />
+            <End Role="FanArtist" EntitySet="FanArtist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FanGenre__FanKey__267ABA7A" Association="Self.FK__FanGenre__FanKey__267ABA7A">
+            <End Role="Fan" EntitySet="Fan" />
+            <End Role="FanGenre" EntitySet="FanGenre" />
+          </AssociationSet>
+          <AssociationSet Name="FK__FanGenre__GenreK__276EDEB3" Association="Self.FK__FanGenre__GenreK__276EDEB3">
+            <End Role="Genre" EntitySet="Genre" />
+            <End Role="FanGenre" EntitySet="FanGenre" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FanTrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ArtistKey" />
+          </Key>
+          <Property Name="ArtistKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArtistName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ArtistEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ArtistWebPage" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ArtistDateEntered" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Genres" Relationship="Self.ArtistGenre" FromRole="Artist" ToRole="Genre" />
+          <NavigationProperty Name="Fans" Relationship="Self.FanArtist" FromRole="Artist" ToRole="Fan" />
+        </EntityType>
+        <EntityType Name="Fan">
+          <Key>
+            <PropertyRef Name="FanKey" />
+          </Key>
+          <Property Name="FanKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FanName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FanEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FanDateEntered" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Artists" Relationship="Self.FanArtist" FromRole="Fan" ToRole="Artist" />
+          <NavigationProperty Name="Genres" Relationship="Self.FanGenre" FromRole="Fan" ToRole="Genre" />
+        </EntityType>
+        <EntityType Name="Genre">
+          <Key>
+            <PropertyRef Name="GenreKey" />
+          </Key>
+          <Property Name="GenreKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenreName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenreDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Artists" Relationship="Self.ArtistGenre" FromRole="Genre" ToRole="Artist" />
+          <NavigationProperty Name="Fans" Relationship="Self.FanGenre" FromRole="Genre" ToRole="Fan" />
+        </EntityType>
+        <Association Name="ArtistGenre">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="*" />
+          <End Role="Genre" Type="Self.Genre" Multiplicity="*" />
+        </Association>
+        <Association Name="FanArtist">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="*" />
+          <End Role="Fan" Type="Self.Fan" Multiplicity="*" />
+        </Association>
+        <Association Name="FanGenre">
+          <End Role="Fan" Type="Self.Fan" Multiplicity="*" />
+          <End Role="Genre" Type="Self.Genre" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="FanTrackingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artists" EntityType="Self.Artist" />
+          <EntitySet Name="Fans" EntityType="Self.Fan" />
+          <EntitySet Name="Genres" EntityType="Self.Genre" />
+          <AssociationSet Name="ArtistGenre" Association="Self.ArtistGenre">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Genre" EntitySet="Genres" />
+          </AssociationSet>
+          <AssociationSet Name="FanArtist" Association="Self.FanArtist">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Fan" EntitySet="Fans" />
+          </AssociationSet>
+          <AssociationSet Name="FanGenre" Association="Self.FanGenre">
+            <End Role="Fan" EntitySet="Fans" />
+            <End Role="Genre" EntitySet="Genres" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FanTrackerModelStoreContainer" CdmEntityContainer="FanTrackingEntities">
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="FanTrackerModel.Artist">
+              <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="ArtistKey" ColumnName="ArtistKey" />
+                <ScalarProperty Name="ArtistName" ColumnName="ArtistName" />
+                <ScalarProperty Name="ArtistEmail" ColumnName="ArtistEmail" />
+                <ScalarProperty Name="ArtistWebPage" ColumnName="ArtistWebPage" />
+                <ScalarProperty Name="ArtistDateEntered" ColumnName="ArtistDateEntered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fans">
+            <EntityTypeMapping TypeName="FanTrackerModel.Fan">
+              <MappingFragment StoreEntitySet="Fan">
+                <ScalarProperty Name="FanKey" ColumnName="FanKey" />
+                <ScalarProperty Name="FanName" ColumnName="FanName" />
+                <ScalarProperty Name="FanEmail" ColumnName="FanEmail" />
+                <ScalarProperty Name="FanDateEntered" ColumnName="FanDateEntered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="FanTrackerModel.Genre">
+              <MappingFragment StoreEntitySet="Genre">
+                <ScalarProperty Name="GenreKey" ColumnName="GenreKey" />
+                <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+                <ScalarProperty Name="GenreDescription" ColumnName="GenreDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ArtistGenre" TypeName="FanTrackerModel.ArtistGenre" StoreEntitySet="ArtistGenre">
+            <EndProperty Name="Artist">
+              <ScalarProperty Name="ArtistKey" ColumnName="ArtistKey" />
+            </EndProperty>
+            <EndProperty Name="Genre">
+              <ScalarProperty Name="GenreKey" ColumnName="GenreKey" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FanArtist" TypeName="FanTrackerModel.FanArtist" StoreEntitySet="FanArtist">
+            <EndProperty Name="Artist">
+              <ScalarProperty Name="ArtistKey" ColumnName="ArtistKey" />
+            </EndProperty>
+            <EndProperty Name="Fan">
+              <ScalarProperty Name="FanKey" ColumnName="FanKey" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FanGenre" TypeName="FanTrackerModel.FanGenre" StoreEntitySet="FanGenre">
+            <EndProperty Name="Fan">
+              <ScalarProperty Name="FanKey" ColumnName="FanKey" />
+            </EndProperty>
+            <EndProperty Name="Genre">
+              <ScalarProperty Name="GenreKey" ColumnName="GenreKey" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

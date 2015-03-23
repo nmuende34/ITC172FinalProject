@@ -1,2 +1,76 @@
 ﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#artistPreference {
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 275px;
+}
+#genrePreference {
+    float: left;
+    width: 268px;
+    margin-left: 360px;
+}
+#artistChoice {
+    float: left;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 80%
+}
+#preferenceForm {
+    float: left;
+    margin-left:10%;
+    width: 80%;
+}
+h1{
+    color: #0d112b;
+    text-align:center;
+    width: 670px;
+    margin-left: 320px;
+}
+h2 {
+    color: #0d112b;
+}
+#yourPreferences {
+    float: left;
+    margin-left: 10%;
+    text-align: center;
+    width: 80%;
+}
+.login {
+    margin-left: 452px;
+}
+.auto-style1 {
+    margin-left: 440px;
+}
+.auto-style2 {
+    margin-left: 294px;
+}
+.marg360 {
+    margin-left: 360px;
+}
+.marg480 {
+    margin-left: 480px;
+    width: 328px;
+}
+.marg40 {
+    margin-left: 40px;
+}
+.marg560 {
+    margin-left: 560px;
+    margin-top: 6px;
+}
+input {
+    border: 1px solid #574f4f;
+    margin-left: 2px;
+    margin-top: 4px;
+}
+.error {
+    color: #890707;
+}
+#Label1 {
+    margin-left: 500px !important;
+    text-align:center !important;
+    width: 140px !important;
 }

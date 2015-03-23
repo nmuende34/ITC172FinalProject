@@ -13,8 +13,8 @@ public class FanRegistrationLoginService : IFanRegistrationLoginService
     public bool RegisterFan(FanLite f, FanLogin fl)
     {
         bool result = true;
-        /*try
-        {*/
+        try
+        {
             PasswordHash ph = new PasswordHash();
             KeyCode kc = new KeyCode();
             int code = kc.GetKeyCode();
@@ -38,11 +38,11 @@ public class FanRegistrationLoginService : IFanRegistrationLoginService
 
             db.FanLogins.Add(fanl);
             db.SaveChanges();
-        /*}
+        }
         catch
         {
             result = false;
-        }*/
+        }
         return result;
     }
 

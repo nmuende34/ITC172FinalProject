@@ -13,16 +13,73 @@
   <wsdl:message name="IArtistTrackingService_GetArtists_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetArtistsResponse" />
   </wsdl:message>
+  <wsdl:message name="IArtistTrackingService_FollowArtist_InputMessage">
+    <wsdl:part name="parameters" element="tns:FollowArtist" />
+  </wsdl:message>
+  <wsdl:message name="IArtistTrackingService_FollowArtist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FollowArtistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtistTrackingService_GetGenres_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenres" />
+  </wsdl:message>
+  <wsdl:message name="IArtistTrackingService_GetGenres_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGenresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IArtistTrackingService_FollowGenre_InputMessage">
+    <wsdl:part name="parameters" element="tns:FollowGenre" />
+  </wsdl:message>
+  <wsdl:message name="IArtistTrackingService_FollowGenre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FollowGenreResponse" />
+  </wsdl:message>
   <wsdl:portType name="IArtistTrackingService">
     <wsdl:operation name="GetArtists">
       <wsdl:input wsaw:Action="http://tempuri.org/IArtistTrackingService/GetArtists" message="tns:IArtistTrackingService_GetArtists_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IArtistTrackingService/GetArtistsResponse" message="tns:IArtistTrackingService_GetArtists_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FollowArtist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtistTrackingService/FollowArtist" message="tns:IArtistTrackingService_FollowArtist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtistTrackingService/FollowArtistResponse" message="tns:IArtistTrackingService_FollowArtist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenres">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtistTrackingService/GetGenres" message="tns:IArtistTrackingService_GetGenres_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtistTrackingService/GetGenresResponse" message="tns:IArtistTrackingService_GetGenres_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FollowGenre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IArtistTrackingService/FollowGenre" message="tns:IArtistTrackingService_FollowGenre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IArtistTrackingService/FollowGenreResponse" message="tns:IArtistTrackingService_FollowGenre_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IArtistTrackingService" type="tns:IArtistTrackingService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="GetArtists">
       <soap:operation soapAction="http://tempuri.org/IArtistTrackingService/GetArtists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FollowArtist">
+      <soap:operation soapAction="http://tempuri.org/IArtistTrackingService/FollowArtist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenres">
+      <soap:operation soapAction="http://tempuri.org/IArtistTrackingService/GetGenres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FollowGenre">
+      <soap:operation soapAction="http://tempuri.org/IArtistTrackingService/FollowGenre" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

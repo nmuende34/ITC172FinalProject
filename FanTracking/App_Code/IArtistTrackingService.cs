@@ -11,5 +11,17 @@ public interface IArtistTrackingService
 {
     [OperationContract]
     List<Artist> GetArtists();
+   
+    [OperationContract]
+    void FollowArtist(int a, int FanKey);
+   
+    [OperationContract]
+    List<Genre> GetGenres();
 
+    [OperationContract]
+    void FollowGenre(int g, int FanKey);
+    
+    /*Operation for pulling preferences...couldn't get to work
+    [OperationContract]
+    string GetPrefs(int fankey);*/
 }
